@@ -12,7 +12,7 @@ export default function Favorites() {
 		async function getBooks() {
 			const favorites = await getFavorites()
 
-			setBooksFavorites(favorites)
+			setBooksFavorites(favorites as Books[])
 		}
 		getBooks()
 	},[booksFavorites])
