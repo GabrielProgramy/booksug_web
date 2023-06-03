@@ -67,11 +67,11 @@ export default function FirstFavorites() {
 				</div>
 			</header>
 
-			<section className="w-full md:w-3/4 h-full md:h-screen flex flex-col items-center justify-center gap-y-16 md:gap-y-10">
+			<section className="w-full md:w-3/4 h-full md:h-screen flex flex-col items-center justify-center gap-y-16 md:gap-y-10 ">
 				<h3 className='md:text-xl font-medium text-brand-black uppercase tracking-tighter md:self-start text-center md:ml-10 w-56 md:w-auto'>Antes de prosseguir, escolha 5 livros favoritos da nossa base de dados</h3>
 				
-				<div className='overflow-x-auto max-w-[260px] md:max-w-3xl whitespace-nowrap px-2'>
-					<ul className='inline-flex space-x-4'>
+				<div className='overflow-x-auto max-w-[260px] md:max-w-3xl whitespace-nowrap px-2 md:scrollable md:scrollbar-thin md:scrollbar-thumb-scrollbar-thumb md:scrollbar-track-scrollbar-base'>
+					<ul className='inline-flex space-x-4 '>
 						{booksSelected.map(book => (
 							<li className='flex flex-row items-center justify-center bg-brand-200 rounded p-2 gap-4' key={book._id}>
 								<p className='text-white uppercase tracking-tighter text-center text-sm md:text-base'>{book.name}</p>
@@ -85,7 +85,7 @@ export default function FirstFavorites() {
 						))}
 					</ul>
 				</div>
-				<div className='flex flex-col md:flex-row gap-y-10 md:gap-x-10 md:justify-center items-center max-h-80 md:max-w-[839px] md:max-h-[310px] overflow-y-auto md:flex-wrap'>
+				<div className='flex flex-col md:flex-row gap-y-10 md:gap-x-10 md:justify-center items-center max-h-80 md:max-w-[839px] md:max-h-[310px] overflow-y-auto md:flex-wrap md:scrollable md:scrollbar-thin md:scrollbar-thumb-scrollbar-thumb md:scrollbar-track-scrollbar-base'>
 					{filteredBooks.map(book => (
 						<div className="flex flex-col items-center text-black tracking-tighter font-medium leading-[.85rem] cursor-pointer" key={book._id} onClick={() => handleSelectBook(book)}>
 							<img className="w-40 md:w-44" src={book.cover} alt="" />
