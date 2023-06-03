@@ -1,13 +1,16 @@
 import { X } from 'phosphor-react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { recomendation } from '../Services/UserService'
+import { addOrRemoveFavorite, recomendation } from '../Services/UserService'
 import Books from '../interfaces/Books'
 
 export default function NewRecommend() {
 	const [book, setBook] = useState<Books>()
+	const [textButton, setTextButton] = useState('')
+	const [isFavorite, setIsFavorite] = useState(false)
+	const navigation = useNavigate()
 
 
 	useEffect(() => {
@@ -19,6 +22,16 @@ export default function NewRecommend() {
 		fetchData()
 	
 	},[])
+
+	async function handleFavoriteOrUnfavorite() {
+		await addOrRemoveFavorite(book?._id as string)
+
+		setTextButton(isFavorite ? 'Adicionar aos Favoritos' : 'Remover dos Favoritos')
+		setIsFavorite(!isFavorite)
+
+		navigation('/books/favorites')
+	
+	}
 
 	return (
 		<div className="w-screen h-full flex flex-col md:flex-row bg-white">
@@ -46,8 +59,8 @@ export default function NewRecommend() {
 								<br/><br/> <span className='uppercase tracking-tighter font-medium text-brand-300'>{book?.publishing} - {book?.release}</span>
 							</p>
 
-							<button className="bg-brand-200 text-white hover:bg-brand-100 transition-colors">
-								Favoritar
+							<button className="bg-brand-200 text-white hover:bg-brand-100 transition-colors" onClick={handleFavoriteOrUnfavorite}>
+								{textButton}
 							</button>
 						</div>
 					</div>
