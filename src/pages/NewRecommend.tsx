@@ -8,7 +8,7 @@ import Books from '../interfaces/Books'
 
 export default function NewRecommend() {
 	const [book, setBook] = useState<Books>()
-	const [textButton, setTextButton] = useState('')
+	const [textButton, setTextButton] = useState('Adicionar aos Favoritos')
 	const [isFavorite, setIsFavorite] = useState(false)
 	const navigation = useNavigate()
 
