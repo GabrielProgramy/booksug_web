@@ -59,7 +59,7 @@ export default function Description() {
 						<span className='text-sm uppercase tracking-tighter font-medium text-brand-400'>{book?.authors}</span>
 						<span className='text-base uppercase tracking-tighter font-medium text-brand-300'>{book?.pages} Páginas</span>
 						<span className='text-sm uppercase tracking-tighter font-medium text-brand-100'>{book?.gender}</span>
-						<p className='text-brand-black h-24 overflow-y-auto my-5 leading-tight md:h-44 md:w-[30rem]'>
+						<p className='md:scrollable md:scrollbar-thin md:scrollbar-thumb-scrollbar-thumb md:scrollbar-track-scrollbar-base text-brand-black h-24 overflow-y-auto my-5 leading-tight md:h-44 md:w-[30rem]'>
 							{book?.synopsis}
 							<br/><br/> <span className='uppercase tracking-tighter font-medium text-brand-300'>{book?.publishing} - {book?.release}</span>
 						</p>

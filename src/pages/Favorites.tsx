@@ -25,7 +25,7 @@ export default function Favorites() {
 
 			<section className="w-full md:w-3/4 h-screen flex flex-col items-center justify-center gap-y-10">
 				
-				<div className='flex flex-col md:flex-row gap-y-10 md:gap-x-10 md:justify-center items-center max-h-80 md:max-w-[839px] md:max-h-[310px] overflow-y-auto md:flex-wrap'>
+				<div className='md:scrollable md:scrollbar-thin md:scrollbar-thumb-scrollbar-thumb md:scrollbar-track-scrollbar-base flex flex-col md:flex-row gap-y-10 md:gap-x-10 md:justify-center items-center max-h-80 md:max-w-[839px] md:max-h-[310px] overflow-y-auto md:flex-wrap'>
 					{booksFavorites.length > 0 ? booksFavorites.map(book => (
 						<Link state={{ route: 'favorites'}} to={`/books/description/${book._id}`} className="flex flex-col items-center text-black tracking-tighter font-medium leading-[.85rem]" key={book._id}>
 							<img className="w-40 md:w-44" src={book.cover} alt="" />
